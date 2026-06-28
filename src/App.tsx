@@ -13,6 +13,7 @@ import {
   MapPin,
   Compass,
   AlertCircle,
+  ArrowRight,
   HelpCircle,
   Heart,
   Settings,

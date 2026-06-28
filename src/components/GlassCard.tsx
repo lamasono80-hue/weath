@@ -30,7 +30,7 @@ export default function GlassCard({
   const motionProps = hoverEffect
     ? {
         whileHover: { y: -4, scale: 1.01, borderColor: theme === 'deep' ? 'rgba(255,255,255,0.2)' : 'rgba(236,72,153,0.3)' },
-        transition: { type: 'spring', stiffness: 300, damping: 20 },
+        transition: { type: 'spring' as const, stiffness: 300, damping: 20 },
       }
     : {};
 

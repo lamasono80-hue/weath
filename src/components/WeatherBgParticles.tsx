@@ -1,13 +1,16 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { WeatherCondition } from '../types';
+import React from "react";
+import { motion } from "motion/react";
+import { WeatherCondition } from "../types";
 
 interface WeatherBgParticlesProps {
   condition: WeatherCondition;
   humidity?: number;
 }
 
-export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherBgParticlesProps) {
+export default function WeatherBgParticles({
+  condition,
+  humidity = 0,
+}: WeatherBgParticlesProps) {
   // Generate random seeds for animations
   const itemsCountByCondition: { [key in WeatherCondition]: number } = {
     sunny: 12,
@@ -23,41 +26,149 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
   // Configuration for slow-drifting, gorgeous ambient blur light flares
   const getOrbsConfig = (cond: WeatherCondition) => {
     switch (cond) {
-      case 'sunny':
+      case "sunny":
         return [
-          { color: 'bg-amber-400/20 md:bg-amber-400/25', size: 'w-72 h-72 md:w-[480px] md:h-[480px]', x: [0, 40, -30, 0], y: [0, -30, 20, 0], duration: 22 },
-          { color: 'bg-orange-500/15 md:bg-orange-500/20', size: 'w-64 h-64 md:w-[380px] md:h-[380px]', x: [0, -50, 30, 0], y: [0, 40, -30, 0], duration: 28 },
-          { color: 'bg-rose-400/15 md:bg-rose-500/15', size: 'w-56 h-56 md:w-[340px] md:h-[340px]', x: [0, 30, -40, 0], y: [0, -25, 30, 0], duration: 18 },
+          {
+            color: "bg-amber-400/20 md:bg-amber-400/25",
+            size: "w-72 h-72 md:w-[480px] md:h-[480px]",
+            x: [0, 40, -30, 0],
+            y: [0, -30, 20, 0],
+            duration: 22,
+          },
+          {
+            color: "bg-orange-500/15 md:bg-orange-500/20",
+            size: "w-64 h-64 md:w-[380px] md:h-[380px]",
+            x: [0, -50, 30, 0],
+            y: [0, 40, -30, 0],
+            duration: 28,
+          },
+          {
+            color: "bg-rose-400/15 md:bg-rose-500/15",
+            size: "w-56 h-56 md:w-[340px] md:h-[340px]",
+            x: [0, 30, -40, 0],
+            y: [0, -25, 30, 0],
+            duration: 18,
+          },
         ];
-      case 'rainy':
+      case "rainy":
         return [
-          { color: 'bg-sky-500/20 md:bg-sky-500/25', size: 'w-72 h-72 md:w-[450px] md:h-[450px]', x: [0, 35, -25, 0], y: [0, -25, 30, 0], duration: 25 },
-          { color: 'bg-blue-600/15 md:bg-blue-600/20', size: 'w-64 h-64 md:w-[360px] md:h-[360px]', x: [0, -40, 30, 0], y: [0, 35, -25, 0], duration: 30 },
-          { color: 'bg-teal-400/15 md:bg-teal-400/20', size: 'w-56 h-56 md:w-[320px] md:h-[320px]', x: [0, 25, -30, 0], y: [0, -20, 25, 0], duration: 20 },
+          {
+            color: "bg-sky-500/20 md:bg-sky-500/25",
+            size: "w-72 h-72 md:w-[450px] md:h-[450px]",
+            x: [0, 35, -25, 0],
+            y: [0, -25, 30, 0],
+            duration: 25,
+          },
+          {
+            color: "bg-blue-600/15 md:bg-blue-600/20",
+            size: "w-64 h-64 md:w-[360px] md:h-[360px]",
+            x: [0, -40, 30, 0],
+            y: [0, 35, -25, 0],
+            duration: 30,
+          },
+          {
+            color: "bg-teal-400/15 md:bg-teal-400/20",
+            size: "w-56 h-56 md:w-[320px] md:h-[320px]",
+            x: [0, 25, -30, 0],
+            y: [0, -20, 25, 0],
+            duration: 20,
+          },
         ];
-      case 'stormy':
+      case "stormy":
         return [
-          { color: 'bg-purple-900/25 md:bg-purple-800/30', size: 'w-80 h-80 md:w-[500px] md:h-[500px]', x: [0, 30, -35, 0], y: [0, -35, 30, 0], duration: 24 },
-          { color: 'bg-indigo-950/30 md:bg-indigo-900/35', size: 'w-72 h-72 md:w-[420px] md:h-[420px]', x: [0, -35, 40, 0], y: [0, 35, -35, 0], duration: 28 },
-          { color: 'bg-fuchsia-900/15 md:bg-fuchsia-800/20', size: 'w-60 h-60 md:w-[320px] md:h-[320px]', x: [0, 25, -30, 0], y: [0, -20, 25, 0], duration: 19 },
+          {
+            color: "bg-purple-900/25 md:bg-purple-800/30",
+            size: "w-80 h-80 md:w-[500px] md:h-[500px]",
+            x: [0, 30, -35, 0],
+            y: [0, -35, 30, 0],
+            duration: 24,
+          },
+          {
+            color: "bg-indigo-950/30 md:bg-indigo-900/35",
+            size: "w-72 h-72 md:w-[420px] md:h-[420px]",
+            x: [0, -35, 40, 0],
+            y: [0, 35, -35, 0],
+            duration: 28,
+          },
+          {
+            color: "bg-fuchsia-900/15 md:bg-fuchsia-800/20",
+            size: "w-60 h-60 md:w-[320px] md:h-[320px]",
+            x: [0, 25, -30, 0],
+            y: [0, -20, 25, 0],
+            duration: 19,
+          },
         ];
-      case 'cloudy':
+      case "cloudy":
         return [
-          { color: 'bg-slate-400/20 md:bg-slate-400/25', size: 'w-72 h-72 md:w-[460px] md:h-[460px]', x: [0, 45, -25, 0], y: [0, -20, 25, 0], duration: 32 },
-          { color: 'bg-sky-200/20 md:bg-sky-300/25', size: 'w-64 h-64 md:w-[350px] md:h-[350px]', x: [0, -30, 40, 0], y: [0, 30, -25, 0], duration: 26 },
-          { color: 'bg-indigo-400/15 md:bg-blue-400/15', size: 'w-56 h-56 md:w-[310px] md:h-[310px]', x: [0, 20, -35, 0], y: [0, -15, 20, 0], duration: 22 },
+          {
+            color: "bg-slate-400/20 md:bg-slate-400/25",
+            size: "w-72 h-72 md:w-[460px] md:h-[460px]",
+            x: [0, 45, -25, 0],
+            y: [0, -20, 25, 0],
+            duration: 32,
+          },
+          {
+            color: "bg-sky-200/20 md:bg-sky-300/25",
+            size: "w-64 h-64 md:w-[350px] md:h-[350px]",
+            x: [0, -30, 40, 0],
+            y: [0, 30, -25, 0],
+            duration: 26,
+          },
+          {
+            color: "bg-indigo-400/15 md:bg-blue-400/15",
+            size: "w-56 h-56 md:w-[310px] md:h-[310px]",
+            x: [0, 20, -35, 0],
+            y: [0, -15, 20, 0],
+            duration: 22,
+          },
         ];
-      case 'snowy':
+      case "snowy":
         return [
-          { color: 'bg-teal-300/20 md:bg-teal-200/25', size: 'w-72 h-72 md:w-[440px] md:h-[440px]', x: [0, 30, -20, 0], y: [0, -20, 20, 0], duration: 23 },
-          { color: 'bg-sky-200/20 md:bg-sky-300/25', size: 'w-64 h-64 md:w-[360px] md:h-[360px]', x: [0, -25, 30, 0], y: [0, 25, -20, 0], duration: 29 },
-          { color: 'bg-white/15 md:bg-cyan-100/15', size: 'w-56 h-56 md:w-[300px] md:h-[300px]', x: [0, 20, -30, 0], y: [0, -15, 20, 0], duration: 18 },
+          {
+            color: "bg-teal-300/20 md:bg-teal-200/25",
+            size: "w-72 h-72 md:w-[440px] md:h-[440px]",
+            x: [0, 30, -20, 0],
+            y: [0, -20, 20, 0],
+            duration: 23,
+          },
+          {
+            color: "bg-sky-200/20 md:bg-sky-300/25",
+            size: "w-64 h-64 md:w-[360px] md:h-[360px]",
+            x: [0, -25, 30, 0],
+            y: [0, 25, -20, 0],
+            duration: 29,
+          },
+          {
+            color: "bg-white/15 md:bg-cyan-100/15",
+            size: "w-56 h-56 md:w-[300px] md:h-[300px]",
+            x: [0, 20, -30, 0],
+            y: [0, -15, 20, 0],
+            duration: 18,
+          },
         ];
-      case 'windy':
+      case "windy":
         return [
-          { color: 'bg-emerald-400/20 md:bg-emerald-300/25', size: 'w-72 h-72 md:w-[450px] md:h-[450px]', x: [0, 50, -40, 0], y: [0, -20, 20, 0], duration: 21 },
-          { color: 'bg-teal-300/20 md:bg-teal-300/25', size: 'w-64 h-64 md:w-[360px] md:h-[360px]', x: [0, -40, 50, 0], y: [0, 25, -25, 0], duration: 27 },
-          { color: 'bg-purple-300/15 md:bg-fuchsia-400/15', size: 'w-56 h-56 md:w-[325px] md:h-[325px]', x: [0, 30, -30, 0], y: [0, -20, 30, 0], duration: 19 },
+          {
+            color: "bg-emerald-400/20 md:bg-emerald-300/25",
+            size: "w-72 h-72 md:w-[450px] md:h-[450px]",
+            x: [0, 50, -40, 0],
+            y: [0, -20, 20, 0],
+            duration: 21,
+          },
+          {
+            color: "bg-teal-300/20 md:bg-teal-300/25",
+            size: "w-64 h-64 md:w-[360px] md:h-[360px]",
+            x: [0, -40, 50, 0],
+            y: [0, 25, -25, 0],
+            duration: 27,
+          },
+          {
+            color: "bg-purple-300/15 md:bg-fuchsia-400/15",
+            size: "w-56 h-56 md:w-[325px] md:h-[325px]",
+            x: [0, 30, -30, 0],
+            y: [0, -20, 30, 0],
+            duration: 19,
+          },
         ];
       default:
         return [];
@@ -74,10 +185,10 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         {orbs.map((orb, i) => {
           // Position each in separate quadrants of the screen for balanced illumination
           const initialPos = [
-            { top: '10%', left: '15%' },
-            { bottom: '15%', right: '10%' },
-            { top: '45%', left: '42%' },
-          ][i] || { top: '30%', left: '30%' };
+            { top: "10%", left: "15%" },
+            { bottom: "15%", right: "10%" },
+            { top: "45%", left: "42%" },
+          ][i] || { top: "30%", left: "30%" };
 
           return (
             <motion.div
@@ -94,13 +205,13 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
               transition={{
                 duration: orb.duration,
                 repeat: Infinity,
-                ease: 'easeInOut',
+                ease: "easeInOut",
               }}
             />
           );
         })}
       </div>
-      {condition === 'rainy' && (
+      {condition === "rainy" && (
         <div className="absolute inset-0">
           {Array.from({ length: count }).map((_, i) => {
             const left = Math.random() * 100;
@@ -108,26 +219,26 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
             const delay = Math.random() * 2;
             const length = 15 + Math.random() * 20;
             const opacity = 0.2 + Math.random() * 0.45;
-            
+
             return (
               <motion.div
                 key={`rain-${i}`}
                 className="absolute w-[1.5px] bg-gradient-to-b from-sky-400 to-blue-500/10 rounded-full"
                 style={{
                   left: `${left}%`,
-                  top: '-10%',
+                  top: "-10%",
                   height: `${length}px`,
                   opacity: opacity,
                 }}
                 animate={{
-                  y: ['0vh', '110vh'],
+                  y: ["0vh", "110vh"],
                   x: [`${Math.random() * -30}px`, `${Math.random() * -10}px`],
                 }}
                 transition={{
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               />
             );
@@ -135,7 +246,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         </div>
       )}
 
-      {condition === 'stormy' && (
+      {condition === "stormy" && (
         <div className="absolute inset-0">
           {/* Periodic rapid lightning sheet flashes behind layers */}
           <motion.div
@@ -162,19 +273,22 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                 className="absolute w-[1.8px] bg-gradient-to-b from-indigo-300 to-purple-500/20 rounded-full"
                 style={{
                   left: `${left}%`,
-                  top: '-10%',
+                  top: "-10%",
                   height: `${length}px`,
                   opacity: opacity,
                 }}
                 animate={{
-                  y: ['0vh', '110vh'],
-                  x: [`${-30 + Math.random() * -20}px`, `${-10 + Math.random() * -10}px`],
+                  y: ["0vh", "110vh"],
+                  x: [
+                    `${-30 + Math.random() * -20}px`,
+                    `${-10 + Math.random() * -10}px`,
+                  ],
                 }}
                 transition={{
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               />
             );
@@ -182,7 +296,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         </div>
       )}
 
-      {condition === 'sunny' && (
+      {condition === "sunny" && (
         <div className="absolute inset-0">
           {Array.from({ length: count }).map((_, i) => {
             const left = Math.random() * 100;
@@ -213,7 +327,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               >
                 <path
@@ -227,7 +341,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         </div>
       )}
 
-      {condition === 'cloudy' && (
+      {condition === "cloudy" && (
         <div className="absolute inset-0">
           {Array.from({ length: count }).map((_, i) => {
             const top = 10 + Math.random() * 70;
@@ -244,16 +358,16 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                   top: `${top}%`,
                   width: `${sizeWidth}px`,
                   height: `${sizeHeight}px`,
-                  left: '-30%',
+                  left: "-30%",
                 }}
                 animate={{
-                  x: ['0vw', '130vw'],
+                  x: ["0vw", "130vw"],
                 }}
                 transition={{
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               />
             );
@@ -261,7 +375,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         </div>
       )}
 
-      {condition === 'windy' && (
+      {condition === "windy" && (
         <div className="absolute inset-0">
           {Array.from({ length: count }).map((_, i) => {
             const top = Math.random() * 100;
@@ -276,24 +390,24 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                 className="absolute h-[1.2px] bg-gradient-to-r from-transparent via-white/50 to-transparent rounded-full"
                 style={{
                   top: `${top}%`,
-                  left: '-15%',
+                  left: "-15%",
                   width: `${length}px`,
                   opacity: opacity,
                 }}
                 animate={{
-                  x: ['0vw', '125vw'],
+                  x: ["0vw", "125vw"],
                   skewX: [-15, -15],
                 }}
                 transition={{
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'easeInOut',
+                  ease: "easeInOut",
                 }}
               />
             );
           })}
-          
+
           {/* Flying Leaves */}
           {Array.from({ length: Math.floor(count * 0.6) }).map((_, i) => {
             const top = -10 + Math.random() * 100;
@@ -310,20 +424,24 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                 className="absolute text-emerald-500/30 md:text-emerald-500/20 drop-shadow-sm pointer-events-none"
                 style={{
                   top: `${top}%`,
-                  left: '-10%',
+                  left: "-10%",
                   width: `${size}px`,
                   height: `${size}px`,
                 }}
                 animate={{
-                  x: ['0vw', '120vw'],
+                  x: ["0vw", "120vw"],
                   y: [0, Math.random() * 60 - 30, Math.random() * 80 - 40],
-                  rotate: [0, 360 * (Math.random() > 0.5 ? 1 : -1), 720 * (Math.random() > 0.5 ? 1 : -1)],
+                  rotate: [
+                    0,
+                    360 * (Math.random() > 0.5 ? 1 : -1),
+                    720 * (Math.random() > 0.5 ? 1 : -1),
+                  ],
                 }}
                 transition={{
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               >
                 <path d="M17,8C8,10 5.9,16.17 3.82,21.34L5.71,22L6.66,19.7C7.14,19.87 7.64,20 8,20C12.42,20 15.35,17.05 16,13C16.71,8.5 17,8 17,8Z" />
@@ -333,7 +451,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
         </div>
       )}
 
-      {condition === 'snowy' && (
+      {condition === "snowy" && (
         <div className="absolute inset-0">
           {Array.from({ length: count }).map((_, i) => {
             const left = Math.random() * 100;
@@ -348,14 +466,14 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                 className="absolute bg-white rounded-full"
                 style={{
                   left: `${left}%`,
-                  top: '-5%',
+                  top: "-5%",
                   width: `${size}px`,
                   height: `${size}px`,
                   opacity: opacity,
-                  filter: 'blur(0.5px)',
+                  filter: "blur(0.5px)",
                 }}
                 animate={{
-                  y: ['0vh', '105vh'],
+                  y: ["0vh", "105vh"],
                   x: [`${Math.sin(i) * 30}px`, `${Math.sin(i + 1) * 30}px`],
                   rotate: [0, 360],
                 }}
@@ -363,7 +481,7 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
                   duration: duration,
                   repeat: Infinity,
                   delay: delay,
-                  ease: 'linear',
+                  ease: "linear",
                 }}
               />
             );
@@ -380,17 +498,17 @@ export default function WeatherBgParticles({ condition, humidity = 0 }: WeatherB
               className="absolute w-[150vw] h-[120vh] bg-white/5 filter blur-[80px] md:blur-[120px] rounded-[100%]"
               style={{
                 top: `${-20 + i * 20}%`,
-                left: '-25%',
+                left: "-25%",
               }}
               animate={{
-                x: ['-10vw', '10vw', '-10vw'],
-                y: ['-5vh', '5vh', '-5vh'],
+                x: ["-10vw", "10vw", "-10vw"],
+                y: ["-5vh", "5vh", "-5vh"],
               }}
               transition={{
                 duration: 25 + Math.random() * 20,
                 repeat: Infinity,
-                ease: 'easeInOut',
-                delay: -Math.random() * 15
+                ease: "easeInOut",
+                delay: -Math.random() * 15,
               }}
             />
           ))}
