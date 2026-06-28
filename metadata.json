@@ -1,0 +1,6 @@
+{
+  "name": "Dự báo Thời tiết Glassmorphism",
+  "description": "Ứng dụng theo dõi và dự báo thời tiết hiện đại với phong cách tối giản, hiệu ứng kính mờ (glassmorphism) và các biểu đồ tương tác trực quan chuyển sắc.",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
